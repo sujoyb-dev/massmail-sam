@@ -1,2 +1,2 @@
 web: npm start
-api: python ./src/scripts/queuemanager.py
+worker: python ./src/scripts/queuemanager.py
