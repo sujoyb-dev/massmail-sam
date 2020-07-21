@@ -1,0 +1,550 @@
+{
+	"info": {
+		"_postman_id": "eca2489d-7933-4763-b30d-537391324097",
+		"name": "BulkMail",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "index",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:3000/admin",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"admin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register admin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "admin@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "role",
+							"value": "admin",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/auth/register",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "admin@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Vendor login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "vendor@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Recruiter login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "recruiter@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register vendor",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "vendor@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123123",
+							"type": "text"
+						},
+						{
+							"key": "role",
+							"value": "vendor",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/auth/register",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register recruiter",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "recruiter@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123123",
+							"type": "text"
+						},
+						{
+							"key": "role",
+							"value": "recruiter",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/auth/register",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Vendor Email",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "to",
+							"value": "priyanshjain412@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "from",
+							"value": "priyansh.jain0246@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "subject",
+							"value": "FinalTesting1!",
+							"type": "text"
+						},
+						{
+							"key": "html",
+							"value": "<h1>WDSTF</h1>",
+							"type": "text"
+						},
+						{
+							"key": "attachments",
+							"type": "file"
+						},
+						{
+							"key": "attachments",
+							"type": "file",
+							"disabled": true
+						},
+						{
+							"key": "to",
+							"value": "priyansh.jain2016@vitstudent.ac.in",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/mail/vendor",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"mail",
+						"vendor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Requirement Email",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"to\": \"priyanshjain412@gmail.com\",\n\t\"from\": \"admin@gmail.com\",\n\t\"subject\": \"Hello world\",\n\t\"text\": \"Some text\"\n\t\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/mail/requirement",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"mail",
+						"requirement"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Vendor Queuestatus",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d35c31dd-76fc-4639-aaeb-dacdce304a91",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:3000/vendor/queuestatus",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"vendor",
+						"queuestatus"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Recuiter Queuestatus",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:3000/recruiter/queuestatus",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"recruiter",
+						"queuestatus"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin queuestatus",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:3000/queuestatus?emails=vendor@gmail.com",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"queuestatus"
+					],
+					"query": [
+						{
+							"key": "emails",
+							"value": "vendor@gmail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Users by tags",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:3000/usersbytags?tags=nodejs&filter=vendor",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"usersbytags"
+					],
+					"query": [
+						{
+							"key": "tags",
+							"value": "nodejs"
+						},
+						{
+							"key": "filter",
+							"value": "vendor"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add user by tag",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n\t\t\"email\": \"recruiter4@gmail.com\",\n\t\t\"tags\": [\"nodejs\", \"devops\", \"twitter\",\"facebook\"],\n\t\t\"role\": \"recruiter\"\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/addusersbytags",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"addusersbytags"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin get global stats",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:3000/admin/mailreports/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"admin",
+						"mailreports",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin Upload",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "uploadcsv",
+							"type": "file"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/admin/upload",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"admin",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

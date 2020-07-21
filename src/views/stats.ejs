@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>BulkMail | Statistics</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <%include nav.ejs%>
+    <div class="row">
+      <div class="col-xs-12">
+        <h1 align="center">Mail Reports</h1>
+        <hr />
+        <br />
+      </div>
+    </div>
+    <div>
+      <table class="fl-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Delivered</th>
+            <th>Processed</th>
+            <th>Invalid Emails</th>
+            <th>Spam Reports</th>
+            <th>Bounces</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% allstats.forEach(function(stat){ %>
+          <tr>
+            <td data-column="Date">
+              <%= stat.date %>
+            </td>
+            <td data-column="Delivered">
+              <%= stat.stats[0].metrics.delivered %>
+            </td>
+            <td data-column="Processed">
+              <%= stat.stats[0].metrics.processed %>
+            </td>
+            <td data-column="Invalid Emails">
+              <a onclick="getBounceUrl('<%= stat.date %>', 'invalidemails')">
+                <%= stat.stats[0].metrics.invalid_emails %>
+              </a>
+            </td>
+            <td data-column="Spam Reports">
+              <a onclick="getBounceUrl('<%= stat.date %>', 'spamreports')">
+                <%= stat.stats[0].metrics.spam_reports %>
+              </a>
+            </td>
+            <td data-column="Bounces">
+              <a onclick="getBounceUrl('<%= stat.date %>', 'bounces')"
+                ><%= stat.stats[0].metrics.bounces %></a
+              >
+            </td>
+          </tr>
+          <% }); %>
+        </tbody>
+        <script>
+          function getBounceUrl(startDate, type) {
+            let d = new Date(startDate);
+            const startTime = d.getTime() / 1000;
+            let m = d.getMonth();
+            d.setMonth(d.getMonth() - 1);
+
+            if (d.getMonth() == m) d.setDate(0);
+            d.setHours(0, 0, 0);
+            d.setMilliseconds(0);
+
+            const endTime = (d / 1000) | 0;
+            encodeURIComponent(startTime);
+            let a = document.createElement("a");
+            a.href =
+              "/admin/mailreports?type=" +
+              encodeURIComponent(type) +
+              "&start_time= " +
+              encodeURIComponent(startTime) +
+              "&end_time=" +
+              encodeURIComponent(endTime);
+            a.click();
+          }
+        </script>
+      </table>
+    </div>
+  </body>
+</html>

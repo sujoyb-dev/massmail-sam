@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>BulkMail | Login</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/angular.min.js"></script>
+    <script src="/js/angular-sanitize.min.js"></script>
+    <script src="/js/ng-csv.min.js"></script>
+    <script src="js/angular-script.js"></script>
+    <link rel="stylesheet" href="/css/vex-theme-top.css" />
+    <script src="/js/vex.combined.min.js"></script>
+  </head>
+
+  <body ng-app="app" ng-controller="loginController">
+    <div class="container-fluid">
+      <br />
+      <br />
+      <div class="row">
+        <div class="col-xs-12">
+          <h1 align="center">BulkMail</h1>
+          <hr />
+          <br />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-8 col-xs-10 col-sm-push-2 col-xs-push-1">
+          <form
+            name="loginForm"
+            method="POST"
+            action="/auth/login"
+            style="margin-top:30px;"
+          >
+            <div
+              class="form-group"
+              ng-class="{'has-success': !loginForm.email.$invalid && loginForm.email.$dirty, 'has-error': (loginForm.email.$invalid || uname_model=='' ) && loginForm.email.$dirty}"
+            >
+              Email
+              <input
+                type="email"
+                class="form-control"
+                ng-model="uname_model"
+                name="email"
+                placeholder="Username"
+                required
+              />
+            </div>
+            <div
+              class="form-group"
+              ng-class="{'has-success': !loginForm.password.$invalid && loginForm.password.$dirty, 'has-error': (loginForm.password.$invalid || password_model=='' ) && loginForm.password.$dirty}"
+            >
+              Password
+              <input
+                type="password"
+                class="form-control"
+                ng-model="password_model"
+                name="password"
+                placeholder="Password"
+                required
+              />
+            </div>
+            <br />
+            <p align="center">
+              <button
+                type="submit"
+                class="btn btn-custom"
+                ng-disabled="loginForm.$invalid"
+              >
+                Login
+              </button>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      var app = angular.module("app", []);
+      app.controller("loginController", function($scope, $http) {});
+    </script>
+  </body>
+</html>

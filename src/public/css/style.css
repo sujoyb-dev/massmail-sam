@@ -1,0 +1,218 @@
+* {
+  font-family: "Roboto", sans-serif;
+  overflow-x: hidden;
+  word-wrap: break-word;
+}
+.form-group {
+  font-weight: bold;
+}
+.form-control {
+  border-radius: 0;
+  margin-top: 5px;
+  font-weight: normal;
+}
+.form-control:focus {
+  box-shadow: none;
+  border: 1px solid #337ab7;
+}
+.card {
+  width: 100%;
+}
+/*
+.card:hover{
+  background: rgba(0,0,0,0.1);
+  text-decoration: none;
+  transition: 0.3s all;
+}*/
+#home a:hover {
+  text-decoration: none;
+}
+.pass {
+  background: lightgreen;
+}
+.reject {
+  background: red;
+}
+.pending {
+  background: yellow;
+}
+.admin-rating span {
+  font-weight: bold;
+  font-size: 160%;
+}
+.admin-rating {
+  font-size: 120%;
+}
+.admin-rating form input {
+  display: inline-block;
+}
+.logout {
+  float: right;
+  margin: 10px;
+}
+.has-success {
+  color: green;
+}
+.has-error {
+  color: red;
+}
+.selected {
+  color: #337ab7;
+}
+.form-group textarea {
+  min-height: 100px;
+}
+.event-list-table tbody tr td a {
+  cursor: pointer;
+  font-weight: bold;
+}
+.event-list-table .header {
+  font-weight: bold;
+}
+#home {
+  padding: 0;
+}
+#home li {
+  list-style-type: none;
+  margin-bottom: 15px;
+}
+#home li a {
+  font-size: 180%;
+  color: #9b4dca;
+  cursor: pointer;
+}
+#home-right {
+  float: right;
+  margin-right: 50px;
+  font-size: 120%;
+}
+.btn-custom {
+  background: #337ab7;
+  border-color: #337ab7;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 90%;
+  padding: 10px 20px;
+  color: white;
+}
+.btn-delete {
+  background: red;
+  text-transform: uppercase;
+  font-weight: normal !important;
+  font-size: 90%;
+  padding: 10px 20px;
+  color: white;
+}
+.btn-delete:hover,
+.btn-delete:focus,
+.btn:focus {
+  color: white;
+}
+.btn-custom:hover,
+.btn-custom:focus,
+.btn:focus {
+  color: white;
+}
+h1 {
+  overflow-y: hidden;
+}
+#receipt {
+  margin-top: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.6);
+  padding: 30px;
+}
+.receipt-content {
+  margin-top: 10px;
+  font-size: 123%;
+}
+.receipt-content h4,
+.receipt-amount h4 {
+  font-weight: bold;
+  margin-bottom: 0;
+}
+#amount {
+  font-size: 300%;
+}
+
+/* table css */
+table {
+  width: 75%;
+  border-collapse: collapse;
+  margin: 50px auto;
+}
+
+/* Zebra striping */
+tr:nth-of-type(odd) {
+  background: #eee;
+}
+
+th {
+  background: #304c6d;
+  color: white;
+  font-weight: bold;
+}
+
+td,
+th {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: left;
+  font-size: 18px;
+}
+
+/* 
+Max width before this PARTICULAR table gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+@media only screen and (max-width: 760px),
+  (min-device-width: 768px) and (max-device-width: 1024px) {
+  table {
+    width: 100%;
+  }
+
+  /* Force table to not be like tables anymore */
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  /* Hide table headers (but not display: none;, for accessibility) */
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  tr {
+    border: 1px solid #ccc;
+  }
+
+  td {
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%;
+  }
+
+  td:before {
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    /* Label the data */
+    content: attr(data-column);
+
+    color: #000;
+    font-weight: bold;
+  }
+}

@@ -1,0 +1,6 @@
+email, role, tags,  something1, something2
+vendor1@gmail, vendor, nodejs+php+django, something1_1, something2_1
+vendor2@gmail, vendor, nodejs+php+django, something1_2, something2_2
+recruiter1@gmail, recruiter, nodejs+django+django, something1_3, something2_3 
+recruiter2@gmail, recruiter, nodejs+django+django, something1_4, something2_4
+

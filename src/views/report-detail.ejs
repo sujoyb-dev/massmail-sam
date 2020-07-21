@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>BulkMail | Queue Status</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/vex-theme-top.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <style>
+    .nav {
+      padding: 20px;
+    }
+    a {
+      font-size: 2rem;
+    }
+  </style>
+
+  <body>
+    <div class="nav">
+      <a href="/admin/mailreports">Back</a>
+    </div>
+    <div>
+      <table class="fl-table">
+        <thead>
+          <tr>
+            <th>To Email</th>
+            <th>Reason</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% emails.forEach(function(email){ %>
+          <tr>
+            <td data-column="To Email">
+              <%= email.email %>
+            </td>
+            <td data-column="Reason">
+              <%= email.reason %>
+            </td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

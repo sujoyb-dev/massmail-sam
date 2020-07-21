@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>BulkMail | User List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/css/vex-theme-top.css" />
+    <script>
+      vex.defaultOptions.className = "vex-theme-top";
+    </script>
+    <script src="/js/vex.combined.min.js"></script>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      /* The Modal (background) */
+      .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0); /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+      }
+
+      /* Modal Content */
+      .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+      }
+
+      /* The Close Button */
+      .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .close:hover,
+      .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <%include nav.ejs%>
+    <div class="row">
+      <div class="col-xs-12">
+        <h1 align="center">User List</h1>
+        <hr />
+        <br />
+      </div>
+    </div>
+    <div>
+      <table class="fl-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Status</th>
+            <th>Activity</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% users.forEach(function(user){ %>
+          <tr>
+            <td data-column="Name">
+              <%= user.name %>
+            </td>
+            <td data-column="Email">
+              <%= user.email %>
+            </td>
+            <td data-column="Role">
+              <%= user.role %>
+            </td>
+            <td data-column="Status">
+              <%= user.status %>
+            </td>
+            <td data-column="Activity">
+              <button
+                onclick="openModal('<%= user.email %>', '<%= user.role %>')"
+              >
+                View Activity
+              </button>
+              <!-- The Modal -->
+              <div id="<%= user.email %>-<%= user.role %>-modal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                  <span class="close">&times;</span>
+                  <% user.emailHistory.forEach(e => { %>
+                  <p>Count:<b><%= e.count %></b></p>
+                  <p>Date:<b><%= e.date %></b></p>
+                  <hr />
+                  <% }) %>
+                </div>
+              </div>
+            </td>
+            <td data-column="Action">
+              <button onclick="updateUser('<%=user._id%>', 'blocked')">
+                Block User
+              </button>
+              <button onclick="updateUser('<%=user._id%>', 'allowed')">
+                Allow User
+              </button>
+            </td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+
+      <script>
+        function updateUser(id, status) {
+          let form = document.createElement("form");
+          let idInput = document.createElement("input");
+          idInput.setAttribute("type", "hidden");
+          idInput.setAttribute("value", id);
+          idInput.setAttribute("name", "id");
+          let statusInput = document.createElement("input");
+          statusInput.setAttribute("type", "hidden");
+          statusInput.setAttribute("value", status);
+          statusInput.setAttribute("name", "status");
+          form.setAttribute("method", "POST");
+          form.setAttribute("action", "/admin/updateuser");
+          form.appendChild(idInput);
+          form.appendChild(statusInput);
+          document.body.appendChild(form);
+          form.submit();
+        }
+      </script>
+    </div>
+    <%if(message){%>
+    <input type="hidden" value="<%=message%>" id="message" />
+    <script>
+      if (document.getElementById("message").value.length > 0) {
+        alertify.success(document.getElementById("message").value);
+      }
+    </script>
+    <%}%>
+    <script>
+      function openModal(email, role) {
+        // When the user clicks the button, open the modal
+        let modal = document.getElementById(email + "-" + role + "-modal");
+        console.log(modal);
+
+        // Get the <span> element that closes the modal
+        let span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+          modal.style.display = "none";
+        };
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        };
+        modal.style.display = "block";
+      }
+    </script>
+  </body>
+</html>

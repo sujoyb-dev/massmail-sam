@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>BulkMail | Login</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="/js/angular.min.js"></script>
+    <script src="/js/angular-sanitize.min.js"></script>
+    <script src="/js/ng-csv.min.js"></script>
+    <script src="/js/angular-script.js"></script>
+  </head>
+
+  <body ng-app="app">
+    <%include nav.ejs%>
+    <div class="container-fluid">
+      <br />
+      <br />
+      <div class="row">
+        <div class="col-xs-12">
+          <h1 align="center">Upload</h1>
+          <hr />
+          <br />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-8 col-xs-10 col-sm-push-2 col-xs-push-1">
+          <form
+            name="uploadForm"
+            method="POST"
+            action="/<%=role%>/upload"
+            style="margin-top:30px;"
+            enctype="multipart/form-data"
+          >
+            <div class="form-group">
+              <label for="file">Upload CSV file</label>
+              <input
+                type="file"
+                class="form-control-file"
+                name="uploadcsv"
+                id="file"
+                accept=".csv"
+              />
+            </div>
+            <% if(role === "admin") { %>
+            <label for="filetype">Select File type</label>
+            <select class="form-control" name="filetype" id="filetype">
+              <option value="recruiter" selected>Recruiter</option>
+              <option value="vendor">Vendor</option>
+            </select>
+            <%}%>
+            <br />
+            <p align="center">
+              <button type="submit" class="btn btn-custom">
+                Submit
+              </button>
+            </p>
+          </form>
+          <%if(message){%>
+          <input type="hidden" value="<%=message%>" id="message" />
+          <script>
+            vex.defaultOptions.className = "vex-theme-top";
+            if (document.getElementById("message").value.length > 0) {
+              alertify.success(document.getElementById("message").value);
+            }
+          </script>
+          <%}%>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

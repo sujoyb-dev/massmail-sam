@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>BulkMail | Queue Status</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <%include nav.ejs%>
+    <div class="row">
+      <div class="col-xs-12">
+        <h1 align="center">Queue Status</h1>
+        <hr />
+        <br />
+      </div>
+    </div>
+    <div>
+      <table class="fl-table">
+        <thead>
+          <tr>
+            <th>Position</th>
+            <th>From</th>
+            <th>Created At</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% emails.forEach(function(email){ %>
+          <tr>
+            <td data-column="Position">
+              <%= email.position %>
+            </td>
+            <td data-column="Sender Email">
+              <%= email.senderEmail %>
+            </td>
+            <td data-column="Created At">
+              <%= email.createdAt %>
+            </td>
+            <td data-column="Status">
+              <%= email.status %>
+            </td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

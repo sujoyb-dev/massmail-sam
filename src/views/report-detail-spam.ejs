@@ -1,0 +1,54 @@
+<!-- {
+    "created": 1433800303,
+    "email": "testemail2@testing.com",
+    "reason": "550 5.1.1 <testemail2@testing.com>: Recipient address rejected: User unknown in virtual alias table ",
+    "status": "5.1.1"
+  } -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>BulkMail | Queue Status</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/vex-theme-top.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      .nav {
+        padding: 20px;
+      }
+      a {
+        font-size: 2rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="nav">
+      <a href="/admin/mailreports">Back</a>
+    </div>
+    <div>
+      <table class="fl-table">
+        <thead>
+          <tr>
+            <th>Created At</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% emails.forEach(function(email){ %>
+          <tr>
+            <td data-column="Created At">
+              <%= new Date(email.created) %>
+            </td>
+            <td data-column="Email">
+              <%= email.email %>
+            </td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
