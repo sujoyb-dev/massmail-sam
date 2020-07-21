@@ -1,2 +1,1 @@
-web: npm start
-worker: python ./src/scripts/queuemanager.py
+web: npm start & python ./src/scripts/queuemanager.py & wait -n
